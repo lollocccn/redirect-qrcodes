@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Redirect</title>
+    <script>
+        function getRedirectUrl() {
+            const params = new URLSearchParams(window.location.search);
+            const id = params.get("id");
+
+            // Mappa degli ID QR-code e dei link di destinazione
+            const redirects = {
+                "001": "https://esempio.com/cartella1",
+                "002": "https://esempio.com/cartella2",
+                "003": "https://esempio.com/cartella3"
+            };
+
+            return redirects[id] || "https://esempio.com/home"; // Link di default
+        }
+
+        window.location.href = getRedirectUrl();
+    </script>
+</head>
+<body>
+    <p>Reindirizzamento in corso...</p>
+</body>
+</html>
